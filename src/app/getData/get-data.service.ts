@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, retry, map, tap } from 'rxjs/operators';
@@ -9,7 +7,6 @@ import { catchError, retry, map, tap } from 'rxjs/operators';
 import { Route } from './route';
 import { Stop } from './stop';
 import { Time } from './time';
-import { RouteStopIdList } from './routeStopIdList';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 
 @Injectable({
@@ -17,8 +14,8 @@ import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 })
 export class GetDataService {
 
-  private routesUrl   = 'https://tr-app-lb.appspot.com/api/routes';
-  private stopsUrl    = 'https://tr-app-lb.appspot.com/api/stops';
+  private routesUrl   = 'https://turing-mark-214011.appspot.com/api/routes';
+  private stopsUrl    = 'https://turing-mark-214011.appspot.com/api/stops';
   private handleError: HandleError;
 
 
@@ -28,7 +25,7 @@ export class GetDataService {
     this.handleError = httpErrorHandler.createHandleError('GetDataService');
   }
 
-  getRoutes(selectedType: string): Observable<Route[]> { //
+  getRoutes(selectedType: string): Observable<Route[]> {
     console.log(selectedType);
     return this.http.get<Route[]>(`${this.routesUrl}?filter[where][direction]=0&filter[where][type][like]=${selectedType}`)
       .pipe(

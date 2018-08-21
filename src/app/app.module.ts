@@ -12,10 +12,8 @@ import { StoprouteviewerComponent } from './stoprouteviewer/stoprouteviewer.comp
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ConfigComponent } from './config/config.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { GetDataService } from './getData/get-data.service';
-import { httpInterceptorProviders } from './http-interceptors/index';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService }       from './message.service';
 import { MessagesComponent }    from './messages/messages.component';
@@ -35,7 +33,6 @@ import { convertTime } from './convert-time.pipe';
     StopviewerComponent,
     StoprouteviewerComponent,
     MessagesComponent,
-    ConfigComponent,
     RouteSearchComponent,
     StopSearchComponent,
     SortPipeName,
@@ -51,8 +48,7 @@ import { convertTime } from './convert-time.pipe';
   providers: [ 
     GetDataService,
     HttpErrorHandler,
-    MessageService,
-    httpInterceptorProviders
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
