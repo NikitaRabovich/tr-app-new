@@ -1,0 +1,11 @@
+<div id="search-component">
+    <h4>Stop Search</h4>
+   
+    <input #searchBox id="search-box" (keyup)="searchStops(searchBox.value)" />
+   
+    <ul class="search-result">
+      <li *ngFor="let stop of allStops$ | async" >
+        <a routerLink="/stops/{{stop.id}}">{{stop.name}}</a>
+      </li>
+    </ul>
+  </div>

@@ -1,0 +1,8 @@
+<div *ngIf="stop">
+  <button type="button" class="btn btn-light" (click)="goBack()" data-toggle="tooltip" data-placement="top" title="To previous view">←</button> {{stop.name | uppercase}} <button type="button" class="btn btn-light" (click)="refresh()" routerLink="/stops/{{stop.revId}}" data-toggle="tooltip" data-placement="top" title="Switch direction">↕</button>
+  <ul class="routes">
+    <li *ngFor="let route of routes | sortPipeNumber: 'id'">
+      <a routerLink="/routes/{{route.id}}"><span class="badge">{{route.number}} {{route.type}}</span> {{route.name}}</a>
+    </li>
+  </ul>
+</div>

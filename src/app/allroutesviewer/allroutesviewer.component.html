@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group mr-2" role="group">
+        <button type="button" class="btn btn-secondary" (click)="selectBus()">Bus</button>
+        <button type="button" class="btn btn-secondary" (click)="selectTram()">Tram</button>
+        <button type="button" class="btn btn-secondary" (click)="selectTrol()">Trolley</button>
+        <button type="button" class="btn btn-secondary" (click)="selectUndr()">Underground</button>
+        <button type="button" class="btn btn-secondary" (click)="selectAll()">All</button>
+      </div>
+    </div>
+</nav>
+<h2>Routes</h2>
+<app-route-search></app-route-search>
+<ul class="routes">
+    <!--<button class="sortButton" (click)="sort()">sort</button>-->
+  <li *ngFor="let route of routes | sortPipeNumber : 'number'">
+    <a routerLink="/routes/{{route.id}}"><span class="badge">{{route.number}} {{route.type}} </span>{{route.name}}</a>
+  </li>
+</ul>

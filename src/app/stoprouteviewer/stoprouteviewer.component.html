@@ -1,0 +1,16 @@
+<div *ngIf="stop">
+  <button type="button" class="btn btn-light" (click)="goBack()" data-toggle="tooltip" data-placement="top" title="Back to stop {{stop.name}}">← {{stop.name}}</button>
+</div>
+<div *ngIf="route">
+    <button type="button" class="btn btn-light" routerLink="../../../../routes/{{route.id}}" data-toggle="tooltip" data-placement="top" title="All stops for this route">{{route.id}} {{route.name | uppercase}} →</button>
+  <ul class="times">
+    <h6>Weekdays</h6>
+    <li *ngFor="let timeW of time.timesW">
+      <span>{{timeW | convertTime}}</span>
+    </li>
+    <h6>Holidays</h6>
+    <li *ngFor="let timeH of time.timesH">
+      <span>{{timeH | convertTime}}</span>
+    </li>
+  </ul>
+</div>
