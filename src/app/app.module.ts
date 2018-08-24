@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AllroutesviewerComponent } from './allroutesviewer/allroutesviewer.component';
@@ -22,6 +24,8 @@ import { StopSearchComponent } from './stop-search/stop-search.component';
 import { SortPipeName } from './sort-pipe-name.pipe';
 import { SortPipeNumber } from './sort-pipe-number.pipe';
 import { convertTime } from './convert-time.pipe';
+import { MapviewerComponent } from './mapviewer/mapviewer.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -37,13 +41,19 @@ import { convertTime } from './convert-time.pipe';
     StopSearchComponent,
     SortPipeName,
     SortPipeNumber,
-    convertTime
+    convertTime,
+    MapviewerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBJpQji2fndAx7RUSdYzAeeij-QNXc6vGY'
+    })
   ],
   providers: [ 
     GetDataService,

@@ -6,6 +6,7 @@ import { AllstopsviewerComponent } from './allstopsviewer/allstopsviewer.compone
 import { RouteviewerComponent } from './routeviewer/routeviewer.component';
 import { StopviewerComponent } from './stopviewer/stopviewer.component';
 import { RoutestopviewerComponent } from './routestopviewer/routestopviewer.component';
+import { MapviewerComponent } from './mapviewer/mapviewer.component';
 
 const routeRoutes: Routes = [
   { path: 'stop/:stopId', component: RoutestopviewerComponent }
@@ -32,7 +33,9 @@ const routes: Routes = [
       ] }
     ] }
   ] },
-  
+  { path: 'map', children: [
+    { path: '', component: MapviewerComponent }
+  ] }
 ];
 
 @NgModule({

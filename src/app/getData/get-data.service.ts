@@ -40,12 +40,8 @@ export class GetDataService {
     catchError(this.handleError<Route>(`getRoute id=${id}`))
     );
   };
-  getRouteStopIdList(id: number) {
-    const url = `${this.routesUrl}/${id}?filter[fields][stopId]=true`;
-    return this.http.get(url);
-  };
   getRouteStops(id: number): Observable<Route['stops']> {
-    const url = `${this.routesUrl}/${id}/stops/`;
+    const url = `${this.routesUrl}/${id}/stops?filter[order]=natural`;
     return this.http.get<Route['stops']>(url).pipe(
       tap(data => console.log(`fetched route ${id} stops`)),
       catchError(this.handleError<Route['stops']>(`getRoute id=${id}`))

@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group mr-2" role="group">
+      <button type="button" class="btn btn-secondary" routerLink="/">Find Route/Stop</button>
+      <button type="button" class="btn btn-secondary" routerLink="/">Lay The Trip</button>
+    </div>
+  </div>
+</nav>
+<h2>Map</h2>
+<agm-map [latitude]="lat" [longitude]="lng"></agm-map>

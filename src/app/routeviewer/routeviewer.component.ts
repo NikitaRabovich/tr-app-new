@@ -6,7 +6,6 @@ import { Location } from '@angular/common';
 import { GetDataService } from '../getData/get-data.service';
 import { Route } from '../getData/route';
 import { Stop } from '../getData/stop';
-import { RouteStopIdList } from '../getData/routeStopIdList';
 
 @Component({
   selector: 'app-routeviewer',
@@ -15,7 +14,6 @@ import { RouteStopIdList } from '../getData/routeStopIdList';
 })
 export class RouteviewerComponent implements OnInit {
   @Input() route: Route;
-  list: RouteStopIdList;
   stops: Stop[] = [];
   data: any;
 
@@ -28,7 +26,6 @@ export class RouteviewerComponent implements OnInit {
   ngOnInit() {
     this.getRoute();
     this.getRouteStops();
-    this.getRouteStopIdList();
   }
 
   getRoute(): void {
@@ -36,11 +33,6 @@ export class RouteviewerComponent implements OnInit {
     this.getDataService.getRoute(routeId).subscribe(route => this.route = route);
   }
 
-  getRouteStopIdList() {
-    const routeId = +this.urlRoute.snapshot.paramMap.get('id');
-    var list = this.getDataService.getRouteStopIdList(routeId);
-    console.log(list)
-  }
 
   getRouteStops(): void {
     const routeId = +this.urlRoute.snapshot.paramMap.get('id');

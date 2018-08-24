@@ -2,17 +2,16 @@
   <h1 style="color: azure">
       {{title}}
   </h1>
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <h1 style="color: azure">
-        {{currentTime | date:'E HH:mm'}}
-    </h1>
-  </div>  
+  <h1 style="color: azure; margin-left: 55%">
+      {{currentTime | date:'E HH:mm'}}
+  </h1>
 </nav>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item"><a class="page-link" routerLink="/routes">Routes</a></li>
       <li class="page-item"><a class="page-link" routerLink="/stops">Stops</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/map">Map</a></li>
     </ul>
   </nav>
 </nav>
