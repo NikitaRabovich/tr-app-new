@@ -1,4 +1,5 @@
 import { Stop } from './stop';
+import { Time } from './time';
 
 export interface Route {
     id: number;
@@ -9,4 +10,5 @@ export interface Route {
     number: string;
     stopId: [number];
     stops: [Stop];
+    times: [Time];
 }

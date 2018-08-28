@@ -41,7 +41,7 @@ export class GetDataService {
     );
   };
   getRouteStops(id: number): Observable<Route['stops']> {
-    const url = `${this.routesUrl}/${id}/stops?filter[order]=natural`;
+    const url = `${this.routesUrl}/${id}/stops`;
     return this.http.get<Route['stops']>(url).pipe(
       tap(data => console.log(`fetched route ${id} stops`)),
       catchError(this.handleError<Route['stops']>(`getRoute id=${id}`))
@@ -53,6 +53,13 @@ export class GetDataService {
       tap(_ => console.log(`fetched route ${routeId} Stop id=${stopId}`)),
     catchError(this.handleError<Stop>(`getStop id=${stopId}`))
     );
+  };
+  getRouteTimes(id: number): Observable<Route['times']> {
+    const url = `${this.routesUrl}/${id}/times`;
+    return this.http.get<Route['times']>(url).pipe(
+      tap(data => console.log(`fetched route ${id} times`)),
+      catchError(this.handleError<Route['times']>(`getRoute id=${id}`))
+    )  
   };
   getRouteStopTimes(routeId: number, stopId: number): Observable<Time> {
     const url = `${this.routesUrl}/${routeId}/stops/${stopId}/times/r${routeId}s${stopId}`;

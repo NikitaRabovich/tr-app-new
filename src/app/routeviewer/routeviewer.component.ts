@@ -1,11 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 
 import { GetDataService } from '../getData/get-data.service';
 import { Route } from '../getData/route';
 import { Stop } from '../getData/stop';
+import { Time } from '../getData/time';
 
 @Component({
   selector: 'app-routeviewer',
@@ -15,7 +16,7 @@ import { Stop } from '../getData/stop';
 export class RouteviewerComponent implements OnInit {
   @Input() route: Route;
   stops: Stop[] = [];
-  data: any;
+  times: Time[] = [];
 
   constructor(
     private urlRoute: ActivatedRoute,
@@ -26,6 +27,7 @@ export class RouteviewerComponent implements OnInit {
   ngOnInit() {
     this.getRoute();
     this.getRouteStops();
+    this.getRouteTimes();
   }
 
   getRoute(): void {
@@ -37,6 +39,11 @@ export class RouteviewerComponent implements OnInit {
   getRouteStops(): void {
     const routeId = +this.urlRoute.snapshot.paramMap.get('id');
     this.getDataService.getRouteStops(routeId).subscribe(stops => this.stops = stops);
+  }
+
+  getRouteTimes(): void {
+    const routeId = +this.urlRoute.snapshot.paramMap.get('id');
+    this.getDataService.getRouteTimes(routeId).subscribe(times => this.times = times);
   }
 
   refresh(): void {
