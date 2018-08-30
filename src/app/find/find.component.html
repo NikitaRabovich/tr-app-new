@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group mr-2" role="group">
+      <button type="button" class="btn btn-secondary" (click)="selectRoutes()">Routes</button>
+      <button type="button" class="btn btn-secondary" (click)="selectStops()">Stops</button>
+    </div>
+  </div>
+</nav>
+<div [ngSwitch]="findSelector">
+  <ng-template [ngSwitchCase]="'routes'">
+    <app-allroutesviewer></app-allroutesviewer>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'stops'">
+    <app-allstopsviewer></app-allstopsviewer>
+  </ng-template>
+</div>

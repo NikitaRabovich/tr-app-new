@@ -1,18 +1,27 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="btn-toolbar" role="toolbar">
-      <div class="btn-group mr-2" role="group">
-        <button type="button" class="btn btn-secondary" (click)="selectBus()">Bus</button>
-        <button type="button" class="btn btn-secondary" (click)="selectTram()">Tram</button>
-        <button type="button" class="btn btn-secondary" (click)="selectTrol()">Trolley</button>
-        <button type="button" class="btn btn-secondary" (click)="selectUndr()">Underground</button>
-        <button type="button" class="btn btn-secondary" (click)="selectAll()">All</button>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5" style="padding-left: 0px; padding-right: 0px">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group mr-2" role="group">
+              <button type="button" class="btn btn-secondary btn-sm" (click)="selectBus()">Bus</button>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="selectTram()">Tram</button>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="selectTrol()">Trolley</button>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="selectUndr()">Underground</button>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="selectAll()">All</button>
+            </div>
+          </div>
+        </nav>
+        <h2>Stops</h2>
+        <app-stop-search></app-stop-search>
+        <ul class="stops">
+          <li *ngFor="let stop of allStops | sortPipeName : 'name'">
+            <a routerLink="/stops/{{stop.id}}"><span class="badge">{{stop.name}}</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-7" style="padding-left: 0px; padding-right: 0px">
+        <app-mapviewer></app-mapviewer>      
       </div>
     </div>
-</nav>
-<h2>Stops</h2>
-<app-stop-search></app-stop-search>
-<ul class="stops">
-  <li *ngFor="let stop of allStops | sortPipeName : 'name'">
-      <a routerLink="/stops/{{stop.id}}"><span class="badge">{{stop.name}}</span></a>
-  </li>
-</ul>
+  </div>

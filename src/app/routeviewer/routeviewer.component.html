@@ -1,8 +1,26 @@
-<div *ngIf="route">
-  <button type="button" class="btn btn-light" (click)="goBack()" data-toggle="tooltip" data-placement="top" title="Back to all routes">←</button> {{route.number}} {{ route.type | uppercase }} {{route.name | uppercase}} <button type="button" class="btn btn-light" (click)="refresh()" routerLink="/routes/{{route.revId}}" data-toggle="tooltip" data-placement="top" title="Switch direction">↕</button>
-  <ul class="stops">
-    <li *ngFor="let time of times | sortPipeNumber : 'order'">
-      <a routerLink="stops/{{time.stopId}}"><span class="badge">{{time.stopId}}</span> {{time.name}} </a>
-    </li>
-  </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5" style="padding-left: 0px; padding-right: 0px">
+      <div *ngIf="route">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group mr-2" role="group">
+                <button type="button" class="btn btn-secondary btn-sm" (click)="goBack()" data-toggle="tooltip" data-placement="top" title="Back to all routes">←</button>
+                <button type="button" class="btn btn-secondary btn-sm disabled" style="opacity: unset">{{route.number}} {{ route.type | uppercase }} {{route.name | uppercase}}</button>
+                <button type="button" class="btn btn-secondary btn-sm" (click)="refresh()" routerLink="/routes/{{route.revId}}" data-toggle="tooltip" data-placement="top" title="Switch direction">↕</button>
+            </div>
+          </div>
+        </nav>
+        <ul class="stops">
+          <li *ngFor="let time of times | sortPipeNumber : 'order'">
+            <a routerLink="stops/{{time.stopId}}"><span class="badge">{{time.stopId}}</span> {{time.name}} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-7" style="padding-left: 0px; padding-right: 0px">
+      <app-mapviewer></app-mapviewer>      
+    </div>
+  </div>
 </div>
+

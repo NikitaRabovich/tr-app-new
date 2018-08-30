@@ -26,6 +26,8 @@ import { SortPipeNumber } from './sort-pipe-number.pipe';
 import { convertTime } from './convert-time.pipe';
 import { MapviewerComponent } from './mapviewer/mapviewer.component';
 import { AgmCoreModule } from '@agm/core';
+import { FindComponent } from './find/find.component';
+import { LayComponent } from './lay/lay.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AgmCoreModule } from '@agm/core';
     SortPipeName,
     SortPipeNumber,
     convertTime,
-    MapviewerComponent
+    MapviewerComponent,
+    FindComponent,
+    LayComponent
   ],
   imports: [
     BrowserModule,

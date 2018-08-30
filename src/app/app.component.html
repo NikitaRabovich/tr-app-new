@@ -1,22 +1,21 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <span class="navbar-brand mr-auto">
-      <h1 style="color: azure">
+<nav class="navbar navbar-expand-xs navbar-dark bg-dark" style="padding: 5px">
+  <span class="navbar-brand" style="padding: 0px; margin-right: auto; width: 206px">
+      <h3 style="color: azure">
           {{title}}
-      </h1>
-  </span>  
-  <span class="navbar-text">
-    <h1 style="color: azure">
+      </h3>
+  </span>
+  <span class="navbar-brand" style="padding: 0px">
+    <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group mr-2" role="group">
+        <button type="button" class="btn btn-secondary btn-md" routerLink="/routes">Routes</button>
+        <button type="button" class="btn btn-secondary btn-md" routerLink="/stops">Stops</button>
+      </div>
+    </div>
+  </span>
+  <span class="navbar-brand" style="padding: 0px; margin-left: auto; width: 206px; text-align: right">
+    <h3 style="color: azure">
       {{currentTime | date:'E HH:mm'}}
-    </h1>
+    </h3>
   </span> 
-</nav>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" routerLink="/routes">Routes</a></li>
-      <li class="page-item"><a class="page-link" routerLink="/stops">Stops</a></li>
-      <li class="page-item"><a class="page-link" routerLink="/map">Map</a></li>
-    </ul>
-  </nav>
 </nav>
 <router-outlet></router-outlet>

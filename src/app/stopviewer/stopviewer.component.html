@@ -1,8 +1,25 @@
-<div *ngIf="stop">
-  <button type="button" class="btn btn-light" (click)="goBack()" data-toggle="tooltip" data-placement="top" title="To previous view">←</button> {{stop.name | uppercase}} <button type="button" class="btn btn-light" (click)="refresh()" routerLink="/stops/{{stop.revId}}" data-toggle="tooltip" data-placement="top" title="Switch direction">↕</button>
-  <ul class="routes">
-    <li *ngFor="let route of routes | sortPipeNumber: 'id'">
-      <a routerLink="/routes/{{route.id}}"><span class="badge">{{route.number}} {{route.type}}</span> {{route.name}}</a>
-    </li>
-  </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5" style="padding-left: 0px; padding-right: 0px">
+      <div *ngIf="stop">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group mr-2" role="group">
+              <button type="button" class="btn btn-secondary btn-sm" (click)="goBack()" data-toggle="tooltip" data-placement="top" title="To previous view">←</button>
+              <button type="button" class="btn btn-secondary btn-sm disabled" style="opacity: unset">{{stop.name | uppercase}}</button>
+              <button type="button" class="btn btn-secondary btn-sm" (click)="refresh()" routerLink="/stops/{{stop.revId}}" data-toggle="tooltip" data-placement="top" title="Switch direction">↕</button>
+            </div>
+          </div>
+        </nav>
+        <ul class="routes">
+          <li *ngFor="let route of routes | sortPipeNumber: 'id'">
+            <a routerLink="/routes/{{route.id}}"><span class="badge">{{route.number}} {{route.type}}</span> {{route.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-7" style="padding-left: 0px; padding-right: 0px">
+      <app-mapviewer></app-mapviewer>      
+    </div>
+  </div>
 </div>

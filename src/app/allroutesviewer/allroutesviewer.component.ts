@@ -41,5 +41,3 @@ export class AllroutesviewerComponent implements OnInit {
     this.showRoutes(' ');
   }
 }
-
-//MAKE LIST OF TYPES, CLASS TYPES
