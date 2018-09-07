@@ -26,6 +26,7 @@ import { SortPipeNumber } from './sort-pipe-number.pipe';
 import { convertTime } from './convert-time.pipe';
 import { MapviewerComponent } from './mapviewer/mapviewer.component';
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { FindComponent } from './find/find.component';
 import { LayComponent } from './lay/lay.component';
 
@@ -57,7 +58,8 @@ import { LayComponent } from './lay/lay.component';
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBJpQji2fndAx7RUSdYzAeeij-QNXc6vGY'
-    })
+    }),
+    AgmSnazzyInfoWindowModule
   ],
   providers: [ 
     GetDataService,

@@ -2,7 +2,8 @@ import { Route } from './route';
 
 export interface Stop {
     id: number;
-    location: [number];
+    lat: number;
+    lng: number;
     revId: number;
     direction: number;
     type: [string];

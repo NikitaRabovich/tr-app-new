@@ -5,6 +5,9 @@ export interface Route {
     id: number;
     revId: number;
     direction: number;
+    color: string;
+    lat: [number];
+    lng: [number];
     name: string;
     type: string;
     number: string;

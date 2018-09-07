@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetDataService } from '../getData/get-data.service';
+import { Route } from '../getData/route';
 import { Stop } from '../getData/stop';
 
 @Component({
@@ -9,19 +10,23 @@ import { Stop } from '../getData/stop';
 })
 export class AllstopsviewerComponent implements OnInit {
 
-  error: any;
-  headers: string[];
-  allStops: Stop[];
+  stops: Stop[];
+  routes: Route[];
 
   constructor(private getDataService: GetDataService) { }
 
   showStops(selectedType): void {
     this.getDataService.getStops(selectedType)
-      .subscribe(allStops => this.allStops = allStops);
+      .subscribe(stops => this.stops = stops);
+  }
+  showRoutes(selectedType): void {
+    this.getDataService.getRoutes(selectedType)
+      .subscribe(routes => this.routes = routes);
   }
 
   ngOnInit() {
     this.showStops(' ');
+    this.showRoutes(' ');
   };
 
   selectBus() {

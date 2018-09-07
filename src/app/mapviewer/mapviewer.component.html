@@ -1,26 +1,21 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group mr-2" role="group">
-      <button type="button" class="btn btn-secondary btn-sm" (click)="selectFind()">Find Route/Stop</button>
-      <button type="button" class="btn btn-secondary btn-sm" (click)="selectLay()">Lay the Trip</button>
+      <button type="button" class="btn btn-secondary btn-sm disabled" data-toggle="tooltip" data-placement="top" title="IN PROGRESS" (click)="selectFind()">Find Route/Stop</button>
+      <button type="button" class="btn btn-secondary btn-sm disabled" data-toggle="tooltip" data-placement="top" title="IN PROGRESS" (click)="selectLay()">Lay the Trip</button>
     </div>
   </div>
 </nav>
-<div class="container">
-  <div class="row">
-    <div class="col">
-        <h2>Map</h2>
-        <agm-map [latitude]="lat" [longitude]="lng"></agm-map>
-    </div>
-    <div class="col">
-      <div [ngSwitch]="selector">
-        <ng-template [ngSwitchCase]="'find'">
-          
-        </ng-template>
-        <ng-template [ngSwitchCase]="'lay'">
-          
-        </ng-template>
-      </div>
-    </div>
-  </div>
+<div class="container" style="max-width: 700px; margin-left: 0px">
+  <h2>Map</h2>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="11">
+    <agm-marker *ngIf="singleStop" [(latitude)]="singleStop.lat" [(longitude)]="singleStop.lng" [(iconUrl)]="stopIcon" [(label)]="singleStop.name"></agm-marker>
+    <agm-marker *ngFor="let stop of stops" [(latitude)]="stop.lat" [(longitude)]="stop.lng" [(iconUrl)]="stopIcon" [(label)]="stop.name" (markerClick)="goToStop(stop.id)"><a routerLink="/stops/{{stop.id}}"></a></agm-marker>
+    <agm-polyline *ngFor="let route of routes" [(strokeColor)]="route.color">
+      <agm-polyline-point *ngFor="let lat of route.lat; let lng of route.lng; let i=index" [(latitude)]="route.lat[i]" [(longitude)]="route.lng[i]"></agm-polyline-point>
+    </agm-polyline>
+    <agm-polyline *ngIf="singleRoute" [(strokeColor)]="singleRoute.color">
+      <agm-polyline-point *ngFor="let lat of singleRoute.lat; let lng of singleRoute.lng; let i=index" [(latitude)]="singleRoute.lat[i]" [(longitude)]="singleRoute.lng[i]"></agm-polyline-point>
+    </agm-polyline>
+  </agm-map>
 </div>

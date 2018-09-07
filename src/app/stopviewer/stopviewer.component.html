@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-5" style="padding-left: 0px; padding-right: 0px">
+    <div class="col-md-4" style="padding-left: 0px; padding-right: 0px">
       <div *ngIf="stop">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
           <div class="btn-toolbar" role="toolbar">
@@ -18,8 +18,8 @@
         </ul>
       </div>
     </div>
-    <div class="col-md-7" style="padding-left: 0px; padding-right: 0px">
-      <app-mapviewer></app-mapviewer>      
+    <div class="col-md-8" style="padding-left: 0px; padding-right: 0px">
+      <app-mapviewer [singleStop]="stop" [routes]="routes"></app-mapviewer>      
     </div>
   </div>
 </div>

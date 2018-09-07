@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { GetDataService } from '../getData/get-data.service';
 import { Route } from '../getData/route';
+import { Stop } from '../getData/stop';
 
 @Component({
   selector: 'app-allroutesviewer',
@@ -10,9 +11,8 @@ import { Route } from '../getData/route';
 })
 export class AllroutesviewerComponent implements OnInit {
 
-  error: any;
-  headers: string[];
   routes: Route[];
+  stops: Stop[];
 
   constructor(private getDataService: GetDataService) { }
 
@@ -20,9 +20,14 @@ export class AllroutesviewerComponent implements OnInit {
     this.getDataService.getRoutes(selectedType)
       .subscribe(routes => this.routes = routes);
   }
+  showStops(selectedType): void {
+    this.getDataService.getStops(selectedType)
+      .subscribe(stops => this.stops = stops);
+  }
 
   ngOnInit() {
     this.showRoutes(' ');
+    this.showStops(' ');
   }
 
   selectBus() {

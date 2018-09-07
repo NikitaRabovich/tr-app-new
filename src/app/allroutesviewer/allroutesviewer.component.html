@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-5" style="padding-left: 0px; padding-right: 0px">
+    <div class="col-md-4" style="padding-left: 0px; padding-right: 0px">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="btn-toolbar" role="toolbar">
           <div class="btn-group mr-2" role="group">
@@ -20,8 +20,8 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-7" style="padding-left: 0px; padding-right: 0px">
-      <app-mapviewer></app-mapviewer>      
+    <div class="col-md-8" style="padding-left: 0px; padding-right: 0px">
+      <app-mapviewer [routes]="routes" [stops]="stops"></app-mapviewer>      
     </div>
   </div>
 </div>
